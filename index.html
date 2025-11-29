@@ -152,8 +152,99 @@
             </div>
         </section>
 
-        <section id="about" class="section-padding bg-white">
+     <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahmed Mohammed - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .contact-icon {
+            @apply w-5 h-5 text-indigo-600;
+        }
+        .skill-level {
+            @apply h-2 bg-gray-200 rounded-full;
+        }
+        .skill-fill {
+            @apply h-2 bg-indigo-600 rounded-full;
+        }
+        .modal-overlay {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        .modal-container {
+            max-height: 90vh;
+            overflow-y: auto;
+            background-color: #e4e6eb;
+        }
+        .europass-document {
+            max-width: 900px;
+            margin: 2rem auto;
+            background-color: white;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 3rem 2.5rem;
+            min-height: 100vh;
+        }
+        .section-header {
+            border-bottom: 2px solid #6366f1;
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #1f2937;
+        }
+        .entry {
+            margin-bottom: 2rem;
+            /* Removed the left border and padding */
+        }
+        .entry-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #374151;
+        }
+        .entry-subtitle {
+            font-size: 1rem;
+            font-weight: 400;
+            color: #4b5563;
+        }
+        .entry-date {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #6366f1;
+            margin-top: 0.25rem;
+            margin-bottom: 0.75rem;
+        }
+        .skill-list li {
+            padding: 0.2rem 0;
+            list-style: none;
+            position: relative;
+            padding-left: 1.25rem;
+        }
+        .skill-list li::before {
+            content: '•';
+            color: #6366f1;
+            font-weight: 700;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .fade-in {
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- About Me Section -->
+    <section id="about" class="section-padding bg-white py-16">
+        <div class="container mx-auto px-4">
             <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">About Me</h2>
+            
             <div class="flex flex-col md:flex-row items-center gap-12">
                 <div class="md:w-1/3">
                     <img src="https://github.com/analysis449/Portfolio-AHMED-MOHAMMED-/blob/main/images%201/AHMED%20MOHAMMED.jpg?raw=true" 
@@ -170,13 +261,295 @@
                     </p>
                     <p class="text-gray-600 leading-relaxed">
                         Currently, I'm focused on building highly available microservices and optimizing application performance using cutting-edge technologies like TypeScript, Serverless, and PostgreSQL. I thrive in collaborative environments and am always eager to learn the next best practice.
+                        <button id="moreBtn" class="text-indigo-600 hover:text-indigo-700 transition-colors duration-200 font-medium ml-1">
+                            More
+                        </button>
                     </p>
                     <a href="mailto:lenoco4055@gmail.com?subject=Let's%20Connect" class="inline-block mt-6 text-indigo-600 font-semibold hover:underline">
                         Let's connect and build something great &rarr;
                     </a>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
+
+    <!-- Hidden Modal Container -->
+    <div id="modal" class="fixed inset-0 z-50 hidden">
+        <div class="modal-overlay absolute inset-0"></div>
+        <div class="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:p-0">
+            <div class="modal-container relative rounded-lg shadow-xl max-w-6xl w-full fade-in">
+                <!-- Modal Header -->
+                <div class="flex items-center justify-between p-6 border-b border-gray-300 bg-white">
+                    <h3 class="text-2xl font-bold text-gray-800">Ahmed Mohammed - Professional Profile</h3>
+                    <button id="closeModal" class="text-gray-400 hover:text-gray-600 transition-colors">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                
+                <!-- Modal Content -->
+                <div class="p-4">
+                    <!-- Europass Document Content -->
+                    <div class="europass-document">
+                        <!-- Header: Personal Information -->
+                        <header class="flex flex-col sm:flex-row justify-between items-start pb-6 border-b border-gray-300 mb-6">
+                            <div class="flex items-center space-x-4 mb-4 sm:mb-0">
+                                <!-- Profile Image -->
+                                <img src="https://github.com/analysis449/Portfolio-AHMED-MOHAMMED-/blob/main/images%201/AHMED%20MOHAMMED.jpg?raw=true" 
+                                     alt="Profile Picture" 
+                                     class="w-24 h-24 rounded-full object-cover border-4 border-white shadow-md"
+                                     onerror="this.onerror=null;this.src='https://placehold.co/100x100/6366F1/FFFFFF?text=AM';">
+                                
+                                <div>
+                                    <h1 class="text-4xl font-bold text-gray-900">AHMED MOHAMMED</h1>
+                                    <p class="text-xl text-gray-600 font-medium">Computer Engineer and Full Stack Developer</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Contact Details -->
+                            <div class="text-sm text-gray-700 space-y-1 mt-2 sm:mt-0">
+                                <p><strong><span class="text-indigo-600">E:</span></strong> lenoco4055@gmail.com</p>
+                                <p><strong><span class="text-indigo-600">P:</span></strong> +4915213282168</p>
+                                <p><strong><span class="text-indigo-600">L:</span></strong> Schleiden, Germany</p>
+                                
+                                <!-- CONTACT ME BUTTON -->
+                                <button onclick="openContactModal()" 
+                                        class="mt-4 w-full py-2 px-4 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition duration-150 transform hover:scale-[1.02]">
+                                    Contact Me
+                                </button>
+                            </div>
+                        </header>
+
+                        <!-- Professional Profile -->
+                        <section>
+                            <h2 class="section-header">Professional Profile</h2>
+                            <p class="text-gray-600 leading-relaxed text-base">
+                                Hello, my name is Ahmed Mohammed, a highly motivated and results-oriented Full Stack Developer specializing in scalable web applications using the MERN stack (MongoDB, Express, React, Node.js). I am a 2024 Computer Engineering graduate and have been living in Germany since August 2024.
+                                I combine strong theoretical knowledge with growing hands-on practical experience. My goal is to continue building my technical expertise through real-world applications and to contribute value in a challenging senior full-stack development role.
+                            </p>
+                        </section>
+                        
+                        <!-- Education and Training -->
+                        <section>
+                            <h2 class="section-header">Education and Training</h2>
+
+                            <!-- Education Entry 1: Bachelor's Degree -->
+                            <div class="entry">
+                                <p class="entry-date">June 2017 – March 2024</p>
+                                <h3 class="entry-title">Bachelor's Degree - Computer Engineering Technology (CET)</h3>
+                                <p class="entry-subtitle">University of Al-Maarif | Ramadi, Iraq</p>
+                                <ul class="list-disc list-inside text-gray-600 text-sm mt-2 space-y-1 pl-4"> 
+                                    Website: <a href="https://uoa.edu.iq/en/" class="text-indigo-600 underline">https://uoa.edu.iq/en/</a>
+                                    <li>Field of Study: Information and Communication Technologies (IKT)</li>
+                                    <li>Equivalence: Recognized as equivalent to a German Bachelor's degree (Anabin H+).</li>
+                                    <li>Field of study Information and Communication Technologies (ICT) – not further specified Final grade Grade point average: 2.8 (satisfactory) EQF level EQF level 6</li>
+                                </ul>
+                            </div>
+
+                            <!-- Education Entry 2: Ovidius University -->
+                            <div class="entry">
+                                <p class="entry-date">June 2012 – Jan 2016</p>
+                                <h3 class="entry-title">Studied at Ovidius University</h3>
+                                <p class="entry-subtitle">Ovidius Faculty of Medicine | Constanța, Romania</p>
+                                <ul class="list-disc list-inside text-gray-600 text-sm mt-2 space-y-1 pl-4"> 
+                                    Website: <a href="https://medicina.univ-ovidius.ro/en/" class="text-indigo-600 underline">https://medicina.univ-ovidius.ro/en/</a>
+                                    <li>Field of Study: Human Medicine</li>
+                                </ul>
+                            </div>
+
+                            <!-- Education Entry 3: High School Diploma -->
+                            <div class="entry">
+                                <p class="entry-date">October 2011</p>
+                                <h3 class="entry-title">High School Diploma (Science Baccalaureat)</h3>
+                                <p class="entry-subtitle">AL-ANBBAR CAPACITY | Ramadi, Iraq</p>
+                                <ul class="list-disc list-inside text-gray-600 text-sm mt-2 space-y-1 pl-4">
+                                    <li>Field of Study: Science</li>
+                                    <li>455/700 points correspond to a German grade of 3.1 EQR Level: 4</li>
+                                </ul>
+                            </div>
+                        </section>
+
+                        <!-- Skills Section -->
+                        <section>
+                            <h2 class="section-header">Skills and Competences</h2>
+
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-4">
+                                
+                                <!-- Digital Skills -->
+                                <div>
+                                    <h3 class="text-lg font-semibold text-gray-700 mb-3 border-b border-gray-200 pb-1">Digital Competences</h3>
+                                    <ul class="skill-list text-gray-600 text-sm">
+                                        <li><strong>Frameworks:</strong> React, React++, Next.js, Express, Tailwind CSS</li>
+                                        <li><strong>Languages:</strong> JavaScript (ES6+), TypeScript, Python</li>
+                                        <li><strong>Databases:</strong> MongoDB, PostgreSQL, Redis</li>
+                                        <li><strong>Tools:</strong> Git, Docker, Kubernetes, AWS/Azure</li>
+                                        <li><strong>Methodology:</strong> Agile (Scrum/Kanban), CI/CD</li>
+                                    </ul>
+                                </div>
+
+                                <!-- Other Skills -->
+                                <div>
+                                    <h3 class="text-lg font-semibold text-gray-700 mb-3 border-b border-gray-200 pb-1">Other Competences</h3>
+                                    <ul class="skill-list text-gray-600 text-sm">
+                                        <li><strong>Problem Solving:</strong> Highly adept at analyzing and solving complex technical challenges.</li>
+                                        <li><strong>Teamwork:</strong> Experienced in cross-functional team collaboration and remote work.</li>
+                                        <li><strong>Communication:</strong> Excellent technical writing and presentation skills.</li>
+                                    </ul>
+                                </div>
+
+                                <!-- Language Skills -->
+                                <div>
+                                    <h3 class="text-lg font-semibold text-gray-700 mb-3 border-b border-gray-200 pb-1">Language Skills</h3>
+                                    <table class="w-full text-left text-sm text-gray-600">
+                                        <thead class="font-medium">
+                                            <tr class="text-xs text-gray-500 uppercase">
+                                                <th class="py-1">Language</th>
+                                                <th class="py-1">CEFR Level</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="py-1">English</td>
+                                                <td class="py-1">C1 (Proficient User)</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="py-1">German</td>
+                                                <td class="py-1">B2 (Independent User)</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Romanian</td>
+                                                <td>B2 (Independent User)</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                
+                <!-- Modal Footer -->
+                <div class="flex justify-end p-6 border-t border-gray-300 bg-white">
+                    <button id="closeModalBottom" class="px-6 py-2 bg-gray-200 text-gray-800 font-medium rounded-lg hover:bg-gray-300 transition-colors duration-200">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Modal -->
+    <div id="contactModal" class="fixed inset-0 z-[60] hidden items-center justify-center modal-overlay">
+        <div class="bg-white rounded-lg shadow-xl max-w-md w-full mx-4 fade-in">
+            <div class="p-6">
+                <!-- Close Button -->
+                <button onclick="closeContactModal()" 
+                        class="absolute top-3 right-3 text-gray-400 hover:text-gray-600 transition duration-150">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+
+                <h2 class="text-2xl font-bold text-gray-900 mb-1">Let's Talk</h2>
+                <p class="text-gray-500 mb-4">Send a message to start a conversation.</p>
+                
+                <!-- Contact Form -->
+                <form action="https://formspree.io/f/youremail@example.com" method="POST" class="space-y-4">
+                    <!-- Name Input -->
+                    <div>
+                        <label for="modal-name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                        <input type="text" name="name" id="modal-name" required 
+                               placeholder="Your Full Name"
+                               class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                    </div>
+
+                    <!-- Email Input -->
+                    <div>
+                        <label for="modal-email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                        <input type="email" name="_replyto" id="modal-email" required 
+                               placeholder="you@example.com"
+                               class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                    </div>
+
+                    <!-- Message Textarea -->
+                    <div>
+                        <label for="modal-message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                        <textarea name="message" id="modal-message" rows="4" required 
+                                  placeholder="Tell me about your project..."
+                                  class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500"></textarea>
+                    </div>
+
+                    <input type="hidden" name="_subject" value="New Inquiry from Portfolio">
+
+                    <!-- Send Message Button -->
+                    <button type="submit" 
+                            class="w-full flex justify-center py-2 px-4 border border-transparent rounded-lg shadow-md text-base font-semibold text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-300">
+                        Send Message
+                    </button>
+                    
+                    <p class="text-xs text-center text-gray-400 mt-4">
+                        Form is processed by a serverless service like Formspree.
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Modal functionality
+        const modal = document.getElementById('modal');
+        const moreBtn = document.getElementById('moreBtn');
+        const closeModal = document.getElementById('closeModal');
+        const closeModalBottom = document.getElementById('closeModalBottom');
+        const contactModal = document.getElementById('contactModal');
+        
+        // Open main modal
+        moreBtn.addEventListener('click', () => {
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        // Close main modal
+        function closeModalFunc() {
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+        
+        closeModal.addEventListener('click', closeModalFunc);
+        closeModalBottom.addEventListener('click', closeModalFunc);
+        
+        // Close modal when clicking outside content
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModalFunc();
+            }
+        });
+        
+        // Close modal with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                closeModalFunc();
+            }
+            if (e.key === 'Escape' && !contactModal.classList.contains('hidden')) {
+                closeContactModal();
+            }
+        });
+        
+        // Contact modal functions
+        function openContactModal() {
+            contactModal.classList.remove('hidden');
+        }
+
+        function closeContactModal() {
+            contactModal.classList.add('hidden');
+        }
+
+        // Close contact modal when clicking outside
+        contactModal.addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeContactModal();
+            }
+        });
+    </script>
+</body>
+</html>
 
         <section id="projects" class="section-padding bg-gray-50">
             <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">Featured Projects</h2>
@@ -578,3 +951,4 @@ git commit -m "Initial project setup"</code></pre>
     </script>
 </body>
 </html>
+
